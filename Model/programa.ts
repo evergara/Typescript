@@ -53,3 +53,19 @@ editor.setDescripcion("Programa para editar musica");
 editor.setTimeline(500000);
 
 console.log("Programa: " + editor.toString());
+
+//logica del formulario
+var programas:any=[];
+
+function guardar(){
+  var nombre = (<HTMLInputElement>document.getElementById("ds_name")).value.toString();
+  var programa = new Programa();
+  programa.setNombre(nombre);
+  programas.push(programa);
+
+  var list="";
+
+   for(var i=0; i<programas.length: i++){
+     list = list +"<li>"+programas[i].getNombre()+"</li>";
+   }
+}
