@@ -68,4 +68,6 @@ function guardar(){
    for(var i=0; i<programas.length: i++){
      list = list +"<li>"+programas[i].getNombre()+"</li>";
    }
+   var listado = <HTMLElement> document.getElementById("listado");
+   listado.innerHTML=list;
 }

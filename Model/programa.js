@@ -72,4 +72,6 @@ function guardar() {
     {
         list = list + "<li>" + programas[i].getNombre() + "</li>";
     }
+    var listado = document.getElementById("listado");
+    listado.innerHTML = list;
 }
