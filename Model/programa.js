@@ -1,3 +1,4 @@
+//import Tienda = require ('../Module/tienda');
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -8,6 +9,35 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+function arranque(lanzar) {
+    return function (target) {
+        target.prototype.lanzamiento = function () {
+            alert(lanzar);
+        };
+    };
+}
+var Tienda;
+(function (Tienda) {
+    var Ropa = /** @class */ (function () {
+        function Ropa(titulo) {
+            this.titulo = titulo;
+            alert('Tienda ropa: ' + titulo);
+        }
+        return Ropa;
+    }());
+    Tienda.Ropa = Ropa;
+    var Informatica = /** @class */ (function () {
+        function Informatica(titulo) {
+            this.titulo = titulo;
+            alert('Tienda Informatica: ' + titulo);
+        }
+        return Informatica;
+    }());
+    Tienda.Informatica = Informatica;
+})(Tienda || (Tienda = {}));
+var Informatica = Tienda.Informatica;
+var cargar_Informatica = new Informatica('Alem');
+;
 var Programa = /** @class */ (function () {
     function Programa() {
     }
@@ -34,6 +64,7 @@ var Programa = /** @class */ (function () {
     };
     return Programa;
 }());
+var programa = new Programa();
 var EditorVideo = /** @class */ (function (_super) {
     __extends(EditorVideo, _super);
     function EditorVideo() {
@@ -67,11 +98,10 @@ function guardar() {
     programa.setNombre(nombre);
     programas.push(programa);
     var list = "";
-    for (var i = 0; i < programas.length; )
-        : i++;
-    {
+    for (var i = 0; i < programas.length; i++) {
         list = list + "<li>" + programas[i].getNombre() + "</li>";
     }
     var listado = document.getElementById("listado");
     listado.innerHTML = list;
+    document.getElementById("ds_name").value = "";
 }

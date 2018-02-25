@@ -1,3 +1,29 @@
+//import Tienda = require ('../Module/tienda');
+
+function arranque(lanzar:string){
+    return function(target: function){
+      target.prototype.lanzamiento = function():void{
+        alert(lanzar);
+      }
+    }
+}
+
+module Tienda{
+  export class Ropa{
+    constructor(public titulo:string){
+      alert('Tienda ropa: '+ titulo);
+    }
+  }
+  export class Informatica{
+    constructor(public titulo:string){
+      alert('Tienda Informatica: '+titulo);
+    }
+  }
+}
+
+let Informatica = Tienda.Informatica;
+let cargar_Informatica = new Informatica('Alem');
+@arranque('Lansamiento del curso de typescript');
 class Programa{
     //Propiedades
   protected nombre:string;
@@ -28,7 +54,7 @@ class Programa{
   }
 }
 
-
+  var programa = new Programa();
 class EditorVideo extends  Programa{
   private timeLine:number;
   //Metodo Set
@@ -55,7 +81,7 @@ editor.setTimeline(500000);
 console.log("Programa: " + editor.toString());
 
 //logica del formulario
-var programas:any=[];
+var programas = [];
 
 function guardar(){
   var nombre = (<HTMLInputElement>document.getElementById("ds_name")).value.toString();
@@ -65,9 +91,10 @@ function guardar(){
 
   var list="";
 
-   for(var i=0; i<programas.length: i++){
+   for(var i=0; i<programas.length; i++){
      list = list +"<li>"+programas[i].getNombre()+"</li>";
    }
    var listado = <HTMLElement> document.getElementById("listado");
    listado.innerHTML=list;
+   (<HTMLInputElement>document.getElementById("ds_name")).value = "";
 }
